@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<mavlink>
+     <version>3</version>
+     <enums>
+          <enum name="STATUS_SYSTEM_TEST">
+               <description> loi say ra khi test dong co </description>
+               <entry value="0" name="SYSTEM_ALL_OK">
+                    <description>ko co loi gi say ra</description>
+               </entry>
+			   <entry value="1" name="ERROR_CONNECTION">
+                    <description>loi ket noi</description>
+               </entry>
+			   <entry value="2" name="ERROR_OVERLOAD">
+                    <description>loi qua tai hay ngan dong</description>
+               </entry>
+			   <entry value="3" name="HIGH_TEMP">
+                    <description>nhiet do qua cao</description>
+               </entry>
+			   <entry value="4" name="MEDIUM_TEMP">
+                    <description>nhiet do trung binh</description>
+               </entry>
+          </enum>
+		  <enum name="MOTOR_DIR">
+               <description> quy dinh chieu quay cua dong co</description>
+               <entry value="0" name="CW">
+                    <description> cung chieu kim dong ho </description>
+               </entry>
+			   <entry value="1" name="CCW">
+                    <description> nguoc chieu kim dong ho </description>
+               </entry>
+          </enum>
+     </enums>
+     <messages>
+	 <!-- MESSAGE IDs 150 - 240: Space for custom messages in individual projectname_messages.xml files -->
+          <message id="150" name="MAV_GMOTOR_TEST_PC2MCU">
+               <description>truyen thong tu pc xuong mcu </description>
+               <field type="uint8_t" name="motor_id"> dia chi dong co </field>
+               <field type="uint8_t" name="motor_dir"> chieu dong co </field>
+               <field type="uint16_t" name="motor_power"> power dong co </field>
+               <field type="float" name="motor_speed"> toc do dong co </field>
+          </message>
+		  <message id="151" name="MAV_GMOTOR_TEST_MCU2PC">
+               <description> truyen thong do tu mcu len may tinh </description>
+               <field type="uint8_t" name="motor_id"> dia chi dong co </field>
+			   <field type="uint8_t" name="motor_status"> trang thay dong co </field>
+               <field type="float" name="motor_temp"> nhiet do dong co </field>
+          </message>
+     </messages>
+</mavlink>
